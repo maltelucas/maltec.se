@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'Doctor Glitch Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Doctor Glitch Regular'),
+    url('./fonts/doctor_glitch.woff') format('woff');
+}
+
+body {
+  background-color: black;
+  font-family: 'Teko', sans-serif;
+}

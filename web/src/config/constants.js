@@ -1,0 +1,2 @@
+export const RANDOM_IMAGE_HEIGHT = 800
+export const RANDOM_IMAGE_WIDTH = 800
