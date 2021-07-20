@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import Button from './Button'
 
 export default function GridItem({ imageUrl, title, onClick }) {
-  const [height, setHeight] = useState()
+  const [randomHeight, setRandomHeight] = useState()
   const [hasFocus, setHasFocus] = useState(false)
 
-  useEffect(function () {
-    const heightInt = Math.floor(Math.random() * 3) + 4
+  useEffect(() => {
+    const heightInt = 6 //Math.floor(Math.random() * 3) + 6
     console.log(heightInt)
-    setHeight('h-' + heightInt * 20)
+    setRandomHeight('h-' + heightInt * 20)
   }, [])
 
   return (
@@ -16,24 +18,21 @@ export default function GridItem({ imageUrl, title, onClick }) {
       onMouseEnter={() => setHasFocus(true)}
       onMouseLeave={() => setHasFocus(false)}
       onClick={onClick}
-      className={`w-full ${height} inline-block relative -mb-1.5`}
+      className={`w-full ${randomHeight} inline-block relative -mb-1.5 cursor-pointer`}
     >
       <div className="inset-0 absolute overflow-hidden">
         <img
-          className={`w-full h-140 object-cover transform transition-all duration-300 ${
-            hasFocus ? 'scale-110' : ''
+          className={`w-full h-200 object-cover transform transition-all duration-500 ${
+            hasFocus ? 'scale-105' : ''
           }`}
           src={imageUrl}
         ></img>
       </div>
       <div
-        className={`bg-black inset-0 bg-opacity-${
-          hasFocus ? '80' : '60'
-        } absolute flex justify-end items-end`}
+        className={`bg-gray-100 left-0 p-6 pt-10 bottom-0 right-0 absolute h-42 flex flex-col justify-center`}
       >
-        <h2 className="text-6xl text-yellow-400 opacity-60 p-10  font-bold">
-          {title?.toUpperCase()}
-        </h2>
+        <h2 className="text-gray-900 font-bold">{title}</h2>
+        <Button icon={faArrowRight} />
       </div>
     </div>
   )

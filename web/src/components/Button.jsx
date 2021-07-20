@@ -1,31 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const STYLES = ['btn--primary', 'btn--outline', 'btn--test']
-const SIZES = ['btn--medium', 'btn--large']
-
-export const Button = ({
-  children,
-  type,
-  onClick,
-  buttonStyle,
-  buttonSize,
-}) => {
-  const checkButtonStyle = STYLES.includes(buttonStyle)
-    ? buttonStyle
-    : STYLES[0]
-
-  const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0]
-
+export default function Button({ onClick = () => {}, icon }) {
   return (
-    <Link to="/sign-up" className="btn-mobile">
-      <button
-        className={`btn ${checkButtonStyle} ${checkButtonSize}`}
-        onClick={onClick}
-        type={type}
-      >
-        {children}
-      </button>
-    </Link>
+    <div
+      onClick={onClick}
+      className="bg-black rounded-full w-12 h-12 flex justify-center items-center mt-4 relative"
+    >
+      <div className="absolute inset-0 text-white flex items-center justify-center">
+        {icon && <FontAwesomeIcon icon={icon} />}
+      </div>
+    </div>
   )
 }

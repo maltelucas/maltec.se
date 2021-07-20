@@ -4,11 +4,11 @@ export const PAGES = [
     path: 'playlists',
     imageUrl: process.env.PUBLIC_URL + '/concert.jpg',
   },
-  {
-    title: 'Portfolio',
-    path: 'portfolio',
-    imageUrl: process.env.PUBLIC_URL + '/portfolio.jpg',
-  },
+  // {
+  //   title: 'Portfolio',
+  //   path: 'portfolio',
+  //   imageUrl: process.env.PUBLIC_URL + '/portfolio.jpg',
+  // },
   {
     title: 'About me',
     path: 'about-me',
